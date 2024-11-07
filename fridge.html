@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E04 - Ali</title>
+    <link rel="stylesheet" href="fridge.css">
+</head>
+
+<body>
+    <center>
+        <h2><b>Justin's Amazing Refrigerator</b></h2>
+
+        
+        <button onclick="powerButton()" type="button">
+            <img width="100" height="100" src="https://static.wikia.nocookie.net/mario/images/8/87/On_Off_Switch_SMM2_NSMBU_style.png/revision/latest/thumbnail/width/360/height/360?cb=20230321185403" alt="onoff">
+            <br>Power
+        </button>
+        <button onclick="goHome()" type="button">
+            <img width="100" height="100" src="https://icons.iconarchive.com/icons/microsoft/fluentui-emoji-flat/256/House-With-Garden-Flat-icon.png" alt="homeButton">
+            <br>Home
+        </button>
+        <button onclick="openBrowser()" type="button">
+            <img width="100" height="100" src="https://cdn-icons-png.freepik.com/512/4387/4387430.png" alt="browser">
+            <br>Internet Browser
+        </button>
+        <button onclick="openSpotify()" type="button">
+            <img width="100" height="100" src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="browser">
+            <br>Spotify
+        </button>
+        <button onclick="watchDisneyPlus()" type="button">
+            <img width="100" height="100" src="https://store-images.s-microsoft.com/image/apps.55431.14495311847124170.004a386e-eb07-4903-b17d-bba1cc3df02e.b4194acd-c795-4ab0-a15b-f0a1383db724" alt="disneyplus">
+            <br>Disney Plus
+        </button>
+        <button onclick="openFridge()" type="button">
+            <img width="100" height="100" src="https://png.pngtree.com/png-clipart/20231116/original/pngtree-white-background-shot-of-an-open-fridge-interior-photo-png-image_13579259.png" alt="openfridge">
+            <br>Open Fridge
+        </button>
+        <button onclick="checkTemperture()" type="button">
+            <img width="100" height="100" src="https://cdn-icons-png.flaticon.com/512/1247/1247137.png" alt="temperture">
+            <br>Check Temperature
+        </button>
+        <button onclick="checkTime()" type="button">
+            <img width="100" height="100" src="https://cdn-icons-png.flaticon.com/512/8327/8327677.png" alt="time">
+            <br>View Time
+        </button>
+        <button onclick="updateToMilitaryTime()" type="button">
+            <img width="100" height="100" src="https://wiki.teamfortress.com/w/images/thumb/7/7b/Soldier.png/250px-Soldier.png" alt="time">
+            <br>update time to military
+        </button>
+        <button onclick="startTimer()" type="button">
+            <img width="100" height="100" src="https://cdn-icons-png.flaticon.com/512/8078/8078447.png" alt="timer">
+            <br>Timer
+        </button>
+    </center>
+        <div id="fridgeScreen">
+            <div class="infoDiv">
+                <h1 id="currentTime" onclick="toggleTimeFormat()"></h1>
+
+                <p id="temperature">Temp: <span id="tempValue"></span>°F</p>
+                <button onclick="toggleTemperatureUnit()">Switch F/C</button>
+                <button onclick="increaseTemperature()">Increase Temp</button>
+                <button onclick="decreaseTemperature()">Decrease Temp</button>
+            </div>
+
+            <div id="shoppingList">
+                <h3>Shopping List</h3>
+                <ul id="listItems">
+                    <li>Milk</li>
+                    <li>Eggs</li>
+                    <li>Bread</li>
+                    <li>Apples</li>
+                    <li>Orange Juice</li>
+                </ul>
+            
+                <input type="text" id="newItem" placeholder="Add item...">
+                <button onclick="addItem()">Add</button>
+            </div>
+            <audio id="alarmSound" src="alarm.mp3"></audio>
+            <audio id="tvSound" src="tv_sound.mp3"></audio>
+            <audio id="musicSound" src="music.mp3"></audio>
+        </div>
+        <div class="toggle">
+            <h1>Toggle Screen</h1>
+        
+            <label class="switch">
+                <input type="checkbox" onclick="toggleScreen()">
+                <span class="slider"></span>
+            </label>
+        </div>
+         
+         <div id="screenDiv">
+            <img id="fridgeImage" src="https://cdn.vectorstock.com/i/1000v/18/31/mobile-phone-apps-vector-561831.jpg alt="Fridge Image" width="420" height="400">
+                
+            
+            <div class="clockDiv">
+                <h1 id="currentTime"></h1>
+            </div>
+        
+        </div>
+    
+
+    <script>
+        
+        let is24Hour = false;
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = is24Hour ? now.toLocaleTimeString("en-GB") : now.toLocaleTimeString("en-US");
+            document.getElementById("currentTime").innerText = timeString;
+        }
+
+    
+        function toggleTimeFormat() {
+            is24Hour = !is24Hour;
+            updateTime();
+        }
+
+       
+        function updateToMilitaryTime() {
+            is24Hour = true;
+            updateTime();
+        }
+
+        
+        setInterval(updateTime, 1000);
+
+
+
+
+        let isCelsius = false;
+        let tempValue = Math.floor(Math.random() * 20) + 30; 
+
+        function displayTemperature() { 
+            const tempElement = document.getElementById("tempValue");
+            let displayTemp = tempValue;
+            if (isCelsius) {
+                displayTemp = ((tempValue - 32) * 5/9).toFixed(1); 
+            }
+            tempElement.innerText = displayTemp;
+        }
+
+        function toggleTemperatureUnit() { 
+            isCelsius = !isCelsius;
+            displayTemperature();
+        }
+
+        function increaseTemperature() { 
+            tempValue++;
+            displayTemperature();
+        }
+
+        function decreaseTemperature() { 
+            tempValue--;
+            displayTemperature();
+        }
+
+        displayTemperature(); 
+
+        function powerButton() {
+            const screen = document.getElementById("fridgeScreen");
+            screen.style.display = screen.style.display === "none" ? "block" : "none";
+        }
+
+        function goHome() {
+            document.getElementById("fridgeImage").src = "https://cdn.vectorstock.com/i/1000v/18/31/mobile-phone-apps-vector-561831.jpg";
+        }
+        
+        function checkTemperture() {
+            document.getElementById("currentTime").innerHTML = "Outside it is: 31&deg;F";
+        }
+
+        function openFridge() {
+            document.getElementById("fridgeImage").src = "https://cdn.airportappliance.com/media/magefan_blog/Beyond-the-Basics--Deep-Cleaning-Your-Refrigerator-Inside-and-Out-.jpg";
+        }
+
+        function openBrowser() {
+            document.getElementById("fridgeImage").src = "https://www.google.com/chrome/static/images/features/big_phone_desktop.png";
+        }
+
+        function watchDisneyPlus() {
+            document.getElementById("fridgeImage").src = "https://www.cnet.com/a/img/resize/ab1f3c7bbfbbbe7e46cda2ace4ee3ec40724dfdb/hub/2024/04/16/b2ff05aa-e55e-4aaf-974e-3b7ba7ae1c43/disney-plus-app-hulu.jpg?auto=webp&width=1200";
+            document.getElementById("tvSound").play();       
+        }
+
+        function openSpotify() {
+            document.getElementById("fridgeImage").src = "https://community.spotify.com/t5/image/serverpage/image-id/154271i058D79D925B12203?v=v2";
+            document.getElementById("musicSound").play();       
+        }
+
+        function startTimer() {
+            let timerValue = prompt("Set timer (minutes):");
+            setTimeout(() => {
+                document.getElementById("alarmSound").play();
+                alert("Time's up!");
+            }, timerValue * 60000);
+        }
+        function toggleScreen(){
+        var smartScreen = document.getElementById("screenDiv");
+            if (smartScreen.style.display === "block") {
+                smartScreen.style.display = "none";
+            } else {
+                smartScreen.style.display = "block";
+                
+        }
+    }
+
+    </script>
+</body>
+</html>
