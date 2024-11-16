@@ -1,1 +1,79 @@
-Hello world from Justin Ali
+<!doctype html>
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('your-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(119, 23, 171, 0.8);
+        }
+        header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        #files {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: rgba(141, 123, 158, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: rgba(175, 153, 181, 0.8);
+            border-top: 1px solid #9c8f8f;
+        }
+    </style>
+    <head> 
+        <title>Justin's GitHub Filelist</title>
+    </head>
+    <body onload="Filelist()">
+        <header>
+            <img src="https://d1m9vqlvl3fy94.cloudfront.net/user/attachment/583676/default_724280IMG_9758.jpeg" alt="Your Avatar" width="300" 
+            height="200">
+            <h1>Jsaking11's Github Repository!</h1>
+            <p>Here, you can view all of my files on github!</p>
+        </header>
+
+        <div id="files"></div>
+
+
+        <script>
+            function Filelist() {
+                let htmlString = "";
+
+                // Fetch files from GitHub repository
+                (async () => {
+                    try {
+                        const response = await fetch("https://api.github.com/repos/Jsaking11/SD330/contents/");
+                        const data = await response.json();
+
+                        // Loop through the files and create clickable links
+                        for (let file of data) {
+                            const fname = file.name;
+                            const fpath = "https://Jsaking11.github.io/SD330/" + fname;
+
+                            htmlString += `<p><a href="${fpath}" target="_blank">${fname}</a></p>`;
+                        }
+
+                        document.getElementById('files').innerHTML = htmlString;
+                    } catch (error) {
+                        document.getElementById('files').innerHTML = "<p>Error loading files. Please try again later.</p>";
+                    }
+                })();
+            }
+        </script>
+        <footer>
+            <p>(c) J. Ali, 11-16-2024</p>
+        </footer>
+    </body>
+</html>
+  
