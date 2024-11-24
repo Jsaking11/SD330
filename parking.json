@@ -1,0 +1,145 @@
+{
+    "parkingLots": [
+      {
+        "name": "Champagnat Hall Lot",
+        "mapFile": "mapChampagnat.jpg",
+        "totalSpaces": 120,
+        "comments": "Close to freshman dorms; high traffic during mornings and weekends.",
+        "location": "East Campus",
+        "securityCameras": true,
+        "lighting": "Well-lit",
+        "spaces": [
+          {
+            "spaceID": "C1",
+            "type": "Student",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C2",
+            "type": "Faculty",
+            "status": "Reserved",
+            "reservedDateTime": "2024-11-22T08:00:00Z",
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C3",
+            "type": "Handicap",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C4",
+            "type": "Student",
+            "status": "Filled",
+            "reservedDateTime": null,
+            "filledDateTime": "2024-11-22T07:30:00Z"
+          },
+          {
+            "spaceID": "C5",
+            "type": "Faculty/Staff",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C6",
+            "type": "Handicap",
+            "status": "Filled",
+            "reservedDateTime": null,
+            "filledDateTime": "2024-11-22T06:45:00Z"
+          },
+          {
+            "spaceID": "C7",
+            "type": "Student",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C8",
+            "type": "Faculty/Staff",
+            "status": "Filled",
+            "reservedDateTime": null,
+            "filledDateTime": "2024-11-22T08:15:00Z"
+          },
+          {
+            "spaceID": "C9",
+            "type": "Handicap",
+            "status": "Reserved",
+            "reservedDateTime": "2024-11-22T10:00:00Z",
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C10",
+            "type": "Student",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C11",
+            "type": "Faculty/Staff",
+            "status": "Available",
+            "reservedDateTime": null,
+            "filledDateTime": null
+          },
+          {
+            "spaceID": "C12",
+            "type": "Handicap",
+            "status": "Filled",
+            "reservedDateTime": null,
+            "filledDateTime": "2024-11-22T09:45:00Z"
+          }
+        ]
+      },
+      {
+        "name": "McCann Center Lot",
+        "mapFile": "mapMcCann.jpg",
+        "totalSpaces": 200,
+        "comments": "Near the athletic center; busiest on game days.",
+        "location": "West Campus",
+        "securityCameras": true,
+        "lighting": "Bright"
+      },
+      {
+        "name": "Donnelly Hall Lot",
+        "mapFile": "mapDonnelly.jpg",
+        "totalSpaces": 80,
+        "comments": "Close to the main administrative building.",
+        "location": "Central Campus",
+        "securityCameras": true,
+        "lighting": "Well-lit"
+      },
+      {
+        "name": "Sheahan Hall Lot",
+        "mapFile": "mapSheahan.jpg",
+        "totalSpaces": 100,
+        "comments": "Mostly used by upperclassmen; quieter during the day.",
+        "location": "East Campus",
+        "securityCameras": false,
+        "lighting": "Moderate"
+      },
+      {
+        "name": "Student Center Lot",
+        "mapFile": "mapStudentCenter.jpg",
+        "totalSpaces": 50,
+        "comments": "Convenient for visitors and dining hall access.",
+        "location": "Central Campus",
+        "securityCameras": true,
+        "lighting": "Bright"
+      },
+      {
+        "name": "North End Lot",
+        "mapFile": "mapNorthEnd.jpg",
+        "totalSpaces": 150,
+        "comments": "Next to the commuter student center. Far from most main academic buildings.",
+        "location": "North Campus",
+        "securityCameras": true,
+        "lighting": "Well-lit"
+      }
+    ]
+  }
+  
