@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c68b8b;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #f79800;
+    color: #fff;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #98812d;
+}
+
+#lots-container, #spaces-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.lot-card, .space-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #b96565;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.lot-card h2, .space-card h2 {
+    margin: 0 0 10px;
+}
+
+.lot-card a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2a3dcd;
+    font-weight: bold;
+}
